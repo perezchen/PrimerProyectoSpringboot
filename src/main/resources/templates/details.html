@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title th:text="${title}"></title>
+</head>
+<body style="background: black; color: white;">
+    <h1 th:text="${title}"></h1>
+
+    <h2 th:text="${user.name}"></h2>
+    <h2 th:text="${user.lastname}"></h2>
+    <h2 th:if="${user.email != null}" th:text="${user.email}"></h2> 
+    <h2 th:if="${user.email == null}" th:text="${'sin email guardado'}"></h2> 
+
+
+    <a th:href="@{/list}"> ver listado</a>
+    <!-- <a th:href="@{'/api/params/foo?message=' + ${title}}"> hola</a> -->
+    <a th:href="@{/api/params/foo?message=Hola que tal}"> Ver Mensaje</a> <br>
+    <a th:href="@{/api/params/foo(message='Hola que tal')}"> Ver Mensaje 2</a> <br>
+    <a th:href="@{/api/params/bar(text='Hola que tal', code=2222)}"> Ver Mensaje doble</a> <br>
+    <a th:href="@{/api/var/baz/Hola que tal}"> Ver Mensaje de path variable</a> <br>
+    <a th:href="@{'/api/var/baz/' + ${title}}"> Ver Mensaje de path variable 2</a> <br>
+
+
+</body>
+</html>
